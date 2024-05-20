@@ -11,24 +11,20 @@ buttonAppend.addEventListener("click",function(){
 })
 
 
-    
-    
-    
-    
-    
-    getRandomNumberInt(1,100);
-    getUniqueRandomNumberInt(bombArray,1, 100);
-    console.log(getUniqueRandomNumberInt)
-    
-    
-             //     FUNZIONI      //
+
+
+
+
+
+
+    //     FUNZIONI      //
 function getRandomNumberInt (min, max){
     return Math.floor(Math.random() * (max + 1) - min) + min;
 }
 
 
-function getUniqueRandomNumberInt (numbersNotCall, min, max){
-    if(max - min > numbersNotCall.length){
+function getUniqueRandomNumberInt (notInvitedNumber, min, max){
+    if(max - min > notInvitedNumber.length){
         return false
     }
     
@@ -37,7 +33,7 @@ function getUniqueRandomNumberInt (numbersNotCall, min, max){
     while(!isFound){
         randomNumber = getRandomNumberInt(min, max);
 
-        if(numbersNotCall.includes(randomNumber) !== false){
+        if(notInvitedNumber.includes(randomNumber) !== false){
             isFound = true;
         }
     }
@@ -45,12 +41,10 @@ function getUniqueRandomNumberInt (numbersNotCall, min, max){
 
 }
 
-
-
 function generateNewGame (containerEl, difficultySelect){
     containerEl.innerHTML = "";
 
-    let NumbersNotCalls = [];
+
     let cells;
     let difficulty;
     switch(selectDifficultyAppend.value){
@@ -69,8 +63,6 @@ function generateNewGame (containerEl, difficultySelect){
     }
 
     for(let i = 0; i < cells; i++){
-        NumbersNotCalls = [i + 1];
-        console.log(NumbersNotCalls)
         const articleEl = document.createElement("article");
         articleEl.classList.add("square", difficulty);
         articleEl.append([i + 1])
@@ -79,10 +71,11 @@ function generateNewGame (containerEl, difficultySelect){
     
         articleEl.addEventListener("click", function(){
             articleEl.classList.add("active");
-            console.log(`You've clicked:${articleEl}`)
+            console.log(`You've clicked: ${[i + 1]}`)
         })  
     }
-}
 
+    
+}
 
 
