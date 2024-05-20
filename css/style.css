@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    height: 80px;
+    background-color: #001533;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header > nav{
+    height: 100%;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #001533;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 160px);
+    background-color: rgb(218, 216, 216);
+    
+}
+
+footer{
+    height: 80px;
+    background-color: #001533;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav#footer{
+    width: 60%;
+    display: flex;
+    align-items: center;
+}
+
+
+
+section#grid{
+    
+    border: 2px solid rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 600px;
+    width: 600px;
+    background-color: #009fbd;
+
+}
+
+article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(5, 5, 5);
+    height:calc(100% / 10);
+    width: calc(100% / 10);
+    color: white;
+}
+article.hard{
+    height:calc(100% / 10);
+    width: calc(100% / 10);
+}
+article.very-hard{
+    height:calc(100% / 9);
+    width: calc(100% / 9);
+}
+article.crazy{
+    height:calc(100% / 7);
+    width: calc(100% / 7);
+}
+
+footer > nav > a {
+    margin-left: .3rem;
+    text-decoration: none;
+    color: white;
+}
+
+header select {
+    padding: .2rem .4rem;
+}
+
+footer > nav > a:hover {
+    text-decoration: underline;
+    color: rgb(123, 121, 121);
+}
+
+footer h4 {
+    color : white;
+}
+
+div.nav-sx {
+    height: 100%;
+}
+
+header > nav > div.nav-sx > a {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+button {
+    padding: .2rem 1.5rem;
+}
+
+img {
+    height: 100%;
+}
+
+h2 {
+    padding: 2rem;
+    line-height: 7rem;
+    font-size: 60px;
+    text-align: center;
+    color: #77037b;
+}
+
+.active{
+    background-color: #77037b;
+    color: #f9e2af;
+}
