@@ -8,10 +8,20 @@ sectionGridAppend.appendChild(startFirstGame);
 
 buttonAppend.addEventListener("click",function(){
     generateNewGame(sectionGridAppend, selectDifficultyAppend.value)
-    console.clear();
-    })
+})
 
 
+    
+    
+    
+    
+    
+    getRandomNumberInt(1,100);
+    getUniqueRandomNumberInt(bombArray,1, 100);
+    console.log(getUniqueRandomNumberInt)
+    
+    
+             //     FUNZIONI      //
 function getRandomNumberInt (min, max){
     return Math.floor(Math.random() * (max + 1) - min) + min;
 }
@@ -40,7 +50,7 @@ function getUniqueRandomNumberInt (numbersNotCall, min, max){
 function generateNewGame (containerEl, difficultySelect){
     containerEl.innerHTML = "";
 
-
+    let NumbersNotCalls = [];
     let cells;
     let difficulty;
     switch(selectDifficultyAppend.value){
@@ -59,6 +69,8 @@ function generateNewGame (containerEl, difficultySelect){
     }
 
     for(let i = 0; i < cells; i++){
+        NumbersNotCalls = [i + 1];
+        console.log(NumbersNotCalls)
         const articleEl = document.createElement("article");
         articleEl.classList.add("square", difficulty);
         articleEl.append([i + 1])
