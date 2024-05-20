@@ -11,7 +11,31 @@ buttonAppend.addEventListener("click",function(){
     console.clear();
     })
 
+
+function getRandomNumberInt (min, max){
+    return Math.floor(Math.random() * (max + 1) - min) + min;
+}
+
+
+function getUniqueRandomNumberInt (numbersNotCall, min, max){
+    if(max - min > numbersNotCall.length){
+        return false
+    }
     
+    let randomNumber;
+    let isFound = false;
+    while(!isFound){
+        randomNumber = getRandomNumberInt(min, max);
+
+        if(numbersNotCall.includes(randomNumber) !== false){
+            isFound = true;
+        }
+    }
+    return randomNumber
+
+}
+
+
 
 function generateNewGame (containerEl, difficultySelect){
     containerEl.innerHTML = "";
@@ -43,7 +67,7 @@ function generateNewGame (containerEl, difficultySelect){
     
         articleEl.addEventListener("click", function(){
             articleEl.classList.add("active");
-            console.log(`You've clicked: ${[i + 1]}`)
+            console.log(`You've clicked:${articleEl}`)
         })  
     }
 }
