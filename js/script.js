@@ -13,10 +13,6 @@ buttonAppend.addEventListener("click",function(){
 
 
 
-
-
-
-
     //     FUNZIONI      //
 function getRandomNumberInt (min, max){
     return Math.floor(Math.random() * (max + 1) - min) + min;
@@ -24,10 +20,6 @@ function getRandomNumberInt (min, max){
 
 
 function getUniqueRandomNumberInt (notInvitedNumber, min, max){
-    if(max - min > notInvitedNumber.length){
-        return false
-    }
-    
     let randomNumber;
     let isFound = false;
     while(!isFound){
@@ -38,13 +30,15 @@ function getUniqueRandomNumberInt (notInvitedNumber, min, max){
         }
     }
     return randomNumber
-
 }
+
+
 
 function generateNewGame (containerEl, difficultySelect){
     containerEl.innerHTML = "";
 
-
+    
+    let bombArray = [];
     let cells;
     let difficulty;
     switch(selectDifficultyAppend.value){
@@ -62,6 +56,8 @@ function generateNewGame (containerEl, difficultySelect){
             break;
     }
 
+
+
     for(let i = 0; i < cells; i++){
         const articleEl = document.createElement("article");
         articleEl.classList.add("square", difficulty);
@@ -74,6 +70,30 @@ function generateNewGame (containerEl, difficultySelect){
             console.log(`You've clicked: ${[i + 1]}`)
         })  
     }
+
+    switch(selectDifficultyAppend.value){
+        case "hard":
+        for(let i = 0; i < 16; i++){
+                bombArray.push(getUniqueRandomNumberInt(bombArray, 1, 100));
+                
+                
+            }
+            
+            break;
+        case "very-hard":
+            for(let i = 0; i < 16; i++){
+                bombArray.push(getUniqueRandomNumberInt(bombArray, 1, 81));
+            }
+            break;
+        case "crazy":
+            for(let i = 0; i < 16; i++){
+                bombArray.push(getUniqueRandomNumberInt(bombArray, 1, 49));
+            }
+            break;
+    }
+
+    console.log(bombArray)
+
 
     
 }
