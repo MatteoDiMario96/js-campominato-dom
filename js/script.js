@@ -41,7 +41,7 @@ function getUniqueRandomNumberInt (notInvitedNumber, min, max){
 function generateNewGame (containerEl, difficultySelect){
     containerEl.innerHTML = "";
 
-    
+    let numberToCall = [];
     let bombArray = [];
     let cells;
     let difficulty;
@@ -63,6 +63,7 @@ function generateNewGame (containerEl, difficultySelect){
 
 
     for(let i = 0; i < cells; i++){
+        numberToCall.push(i +1);
         const articleEl = document.createElement("article");
         articleEl.classList.add("square", difficulty);
         articleEl.append([i + 1])
