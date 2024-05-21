@@ -34,7 +34,7 @@ function getUniqueRandomNumberInt (numeriGiaEstratti, min, max){
     while(!isFound){
         randomNumber = getRandomNumberInt(min, max);
 
-        if(numeriGiaEstratti.includes(randomNumber) !== false){
+        if(numeriGiaEstratti.includes(randomNumber)){
             isFound = true;
         }
     }
