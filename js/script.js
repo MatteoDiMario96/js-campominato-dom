@@ -14,38 +14,28 @@ buttonAppend.addEventListener("click",function(){
 
 
     //     FUNZIONI      //
-function getRandomNumberInt (min, max){
+//Genera numero random//
+    function getRandomNumberInt (min, max){
     return Math.floor(Math.random() * (max + 1) - min) + min;
 }
-
-/**
- * 
- * @param {*} numeriGiaEstratti 
- * @param {*} min 
- * @param {*} max 
- * @returns 
- */
+//Genera numero random unico//
 function getUniqueRandomNumberInt (numeriGiaEstratti, min, max){
-    if(max - min > numeriGiaEstratti.length){
-        return false
-    }
     let randomNumber;
-    let isFound = false;
-    while(!isFound){
+    let isRandomNumberAlreadyExtracted = true;
+    while(isRandomNumberAlreadyExtracted){
         randomNumber = getRandomNumberInt(min, max);
 
         if(numeriGiaEstratti.includes(randomNumber)){
-            isFound = true;
+            isRandomNumberAlreadyExtracted = true;
+        } else{
+            isRandomNumberAlreadyExtracted = false;
         }
     }
-    return randomNumber
+    return randomNumber 
 }
-
-
-
+//Genera nuova partita//
 function generateNewGame (containerEl, difficultySelect){
     containerEl.innerHTML = "";
-
     let numberToCall = [];
     let bombArray = [];
     let cells;
@@ -64,9 +54,7 @@ function generateNewGame (containerEl, difficultySelect){
             difficulty = "crazy";
             break;
     }
-
-
-
+    //Creazione Square
     for(let i = 0; i < cells; i++){
         numberToCall.push(i + 1);
         const articleEl = document.createElement("article");
@@ -74,21 +62,24 @@ function generateNewGame (containerEl, difficultySelect){
         articleEl.append([i + 1])
         sectionGridAppend.appendChild(articleEl)
     
-    
-        articleEl.addEventListener("click", function(){
-            articleEl.classList.add("active");
-            console.log(`You've clicked: ${[i + 1]}`)
+        if(articleEl.classList.contains("bomb")){
+            articleEl.removeEventListener("click",function(){})
+        }
+        else articleEl.addEventListener("click", function(){
+            if(bombArray.includes(i + 1)){
+                gameOver(articleEl);
+            }else{
+                articleEl.classList.add("active");
+            // console.log(`You've clicked: ${[i + 1]}`)
+            }
         })  
     }
-
+    //Creazione Bombe
     switch(selectDifficultyAppend.value){
         case "hard":
         for(let i = 0; i < 16; i++){
-                bombArray.push(getUniqueRandomNumberInt(bombArray, 1, 100));
-                
-                
-            }
-            
+                bombArray.push(getUniqueRandomNumberInt(bombArray, 1, 100));             
+            }           
             break;
         case "very-hard":
             for(let i = 0; i < 16; i++){
@@ -101,11 +92,16 @@ function generateNewGame (containerEl, difficultySelect){
             }
             break;
     }
+    console.log(bombArray)
+}
 
-    console.log(bombArray,numberToCall)
-
-
+function gameOver(elemento){
+    elemento.classList.add("bomb");
+    elemento.removeEventListener("click",function(){
+        
+    })
     
+
 }
 
 
