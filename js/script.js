@@ -20,7 +20,7 @@ function getRandomNumberInt (min, max){
 
 
 function getUniqueRandomNumberInt (notInvitedNumber, min, max){
-    if((max - min) - 16 > notInvitedNumber.length){
+    if(max - min > notInvitedNumber.length){
         return false
     }
     
