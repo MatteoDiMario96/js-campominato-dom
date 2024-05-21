@@ -18,18 +18,23 @@ function getRandomNumberInt (min, max){
     return Math.floor(Math.random() * (max + 1) - min) + min;
 }
 
-
-function getUniqueRandomNumberInt (notInvitedNumber, min, max){
-    if(max - min > notInvitedNumber.length){
+/**
+ * 
+ * @param {*} numeriGiaEstratti 
+ * @param {*} min 
+ * @param {*} max 
+ * @returns 
+ */
+function getUniqueRandomNumberInt (numeriGiaEstratti, min, max){
+    if(max - min > numeriGiaEstratti.length){
         return false
     }
-    
     let randomNumber;
     let isFound = false;
     while(!isFound){
         randomNumber = getRandomNumberInt(min, max);
 
-        if(notInvitedNumber.includes(randomNumber) !== false){
+        if(numeriGiaEstratti.includes(randomNumber) !== false){
             isFound = true;
         }
     }
@@ -63,7 +68,7 @@ function generateNewGame (containerEl, difficultySelect){
 
 
     for(let i = 0; i < cells; i++){
-        numberToCall.push(i +1);
+        numberToCall.push(i + 1);
         const articleEl = document.createElement("article");
         articleEl.classList.add("square", difficulty);
         articleEl.append([i + 1])
@@ -97,7 +102,7 @@ function generateNewGame (containerEl, difficultySelect){
             break;
     }
 
-    console.log(bombArray)
+    console.log(bombArray,numberToCall)
 
 
     
