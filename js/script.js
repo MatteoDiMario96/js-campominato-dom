@@ -20,6 +20,10 @@ function getRandomNumberInt (min, max){
 
 
 function getUniqueRandomNumberInt (notInvitedNumber, min, max){
+    if((max - min) - 16 > notInvitedNumber.length){
+        return false
+    }
+    
     let randomNumber;
     let isFound = false;
     while(!isFound){
