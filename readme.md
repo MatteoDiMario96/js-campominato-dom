@@ -46,3 +46,14 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 - Creare una funzione Game Over che quando viene premuto un numero presente nell'arrey bombe, aggiunge classe bomb ai numeri con le bombe e ovviamente che diventano rosse e che vengano visualizzate. E rimuovo levent listener.
 
 - Comunicare all'utente quante volte attiva la classe active.
+
+
+- Creare un array di numeri non scelti dalle bombe.
+    - Togliere i numeri scelti dalle bombe 
+- Creare un array da numeri che sono le bombe.
+
+- Genera 16 numeri unici casuali 
+
+
+- All'articleEl SE ha l'elemento clickato incluso manda funzione game over 
+    - ALTRIMENTI Aggiungi classe active e aumenta punteggio di 1.

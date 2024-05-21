@@ -41,7 +41,7 @@ function generateNewGame (containerEl, difficultySelect){
     let bombArray = [];
     let cells;
     let difficulty;
-    let gameOver = false;
+    let gameOverVariable = false;
     let userScore = 0;
     switch(selectDifficultyAppend.value){
         case "hard":
